@@ -22,6 +22,8 @@ public class CheckBoard {
 
     public static boolean checkBoard(String[][] board) {
 
+        String sortedNumbers = "123456789";
+
         // It should be a given that the input is a two-dimensional array (9*9), each item being 1-9
         // (or 0 for a blank square), but we will add error handling for those things anyway...
 
@@ -42,7 +44,6 @@ public class CheckBoard {
             char[] charArray = lineAsString.toCharArray();
             Arrays.sort(charArray);
             String charArrayToString = new String(charArray);
-            String sortedNumbers = "123456789";
             if (charArrayToString.compareTo(sortedNumbers) != 0) {
                 return false;
             }
@@ -51,18 +52,17 @@ public class CheckBoard {
         // rewrites board into arrays representing columns; checks columns
         String[] columns = new String[81];
         int columnsArrayIndex = 0;
-        for (int j = 0; j < board.length; j++) {
-            for (int k = 0; k < board[j].length; k++) {
-                columns[columnsArrayIndex] = board[k][j];
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                columns[columnsArrayIndex] = board[j][i];
                 columnsArrayIndex++;
             }
         }
-        for (int l = 0; l < 9; l++) {
-            int number = l * 9;
+        for (int i = 0; i < 9; i++) {
+            int number = i * 9;
             String[] column = Arrays.copyOfRange(columns, number, number + 9);
             Arrays.sort(column);
             String joinedColumn = String.join("", column);
-            String sortedNumbers = "123456789";
             if (joinedColumn.compareTo(sortedNumbers) != 0) {
                 return false;
             }
@@ -71,40 +71,39 @@ public class CheckBoard {
         // rewrites board into arrays representing squares; checks squares
         String[] squares = new String[81];
         int squaresIndex = 0;
-        for (int n = 0; n < 81; n += 9) {
-            squares[squaresIndex] = columns[n];
+        for (int i = 0; i < 81; i += 9) {
+            squares[squaresIndex] = columns[i];
             squaresIndex++;
-            squares[squaresIndex] = columns[n + 1];
+            squares[squaresIndex] = columns[i + 1];
             squaresIndex++;
-            squares[squaresIndex] = columns[n + 2];
-            squaresIndex++;
-        }
-        for (int n = 3; n < 81; n += 9) {
-            squares[squaresIndex] = columns[n];
-            squaresIndex++;
-            squares[squaresIndex] = columns[n + 1];
-            squaresIndex++;
-            squares[squaresIndex] = columns[n + 2];
+            squares[squaresIndex] = columns[i + 2];
             squaresIndex++;
         }
-        for (int n = 6; n < 81; n += 9) {
-            squares[squaresIndex] = columns[n];
+        for (int i = 3; i < 81; i += 9) {
+            squares[squaresIndex] = columns[i];
             squaresIndex++;
-            squares[squaresIndex] = columns[n + 1];
+            squares[squaresIndex] = columns[i + 1];
             squaresIndex++;
-            squares[squaresIndex] = columns[n + 2];
+            squares[squaresIndex] = columns[i + 2];
+            squaresIndex++;
+        }
+        for (int i = 6; i < 81; i += 9) {
+            squares[squaresIndex] = columns[i];
+            squaresIndex++;
+            squares[squaresIndex] = columns[i + 1];
+            squaresIndex++;
+            squares[squaresIndex] = columns[i + 2];
             squaresIndex++;
         }
         String[][] squaresArray = new String[9][9];
         int squaresArrayIndex = 0;
-        for (int a = 0; a < squares.length; a += 9) {
-            squaresArray[squaresArrayIndex] = Arrays.copyOfRange(squares, a, a + 9);
+        for (int i = 0; i < squares.length; i += 9) {
+            squaresArray[squaresArrayIndex] = Arrays.copyOfRange(squares, i, i + 9);
             squaresArrayIndex++;
         }
-        for (int b = 0; b < 9; b++) {
-            Arrays.sort(squaresArray[b]);
-            String joinedSquare = String.join("", squaresArray[b]);
-            String sortedNumbers = "123456789";
+        for (int i = 0; i < 9; i++) {
+            Arrays.sort(squaresArray[i]);
+            String joinedSquare = String.join("", squaresArray[i]);
             if (joinedSquare.compareTo(sortedNumbers) != 0) {
                 return false;
             }

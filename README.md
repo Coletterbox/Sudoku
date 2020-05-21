@@ -2,6 +2,8 @@
 
 ![](https://media.giphy.com/media/EPwELUbhreEPC/giphy.gif)
 
+## [Trello Link](https://trello.com/b/woCNGoWu/sudoku-board)
+
 - [x] Write failing tests for sudoku checker
 - [x] Get coffee
 - [x] Rewatch more Community
@@ -13,3 +15,4 @@
 - [x] Write method that converts a two-dimensional array of integers to a two-dimensional array of strings (maybe check if there's a more out-of-the-box method, but also, whatever)
 - [ ] Add Philip and Tolga to contributors
 - [ ] Add error handling for sudoku checker
+- [ ] Add TODOs from Trello to this list

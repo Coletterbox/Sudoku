@@ -2,6 +2,8 @@
 
 ![](https://media.giphy.com/media/EPwELUbhreEPC/giphy.gif)
 
+## [Trello Link](https://trello.com/b/woCNGoWu/sudoku-board)
+
 - [x] Write failing tests for sudoku checker
 - [x] Get coffee
 - [x] Rewatch more Community

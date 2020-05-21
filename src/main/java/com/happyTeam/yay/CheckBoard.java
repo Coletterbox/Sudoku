@@ -8,6 +8,9 @@ public class CheckBoard {
     }
 
     public static String[][] convertIntArrayToStringArray(int[][] board) {
+
+        // We'll know if we'll need to call this later.
+
         String[][] boardAsStrings = new String[board.length][board[0].length];
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
@@ -19,11 +22,18 @@ public class CheckBoard {
 
     public static boolean checkBoard(String[][] board) {
 
-        // In the context that this will be used in, it will be a given that the input is a
-        // two-dimensional array (9*9), each item being 1-9 (or 0 for a blank square).
+        // It should be a given that the input is a two-dimensional array (9*9), each item being 1-9
+        // (or 0 for a blank square), but we will add error handling for those things anyway...
 
-        // The variable type of the numbers may be different, but a separate method will account
-        // for that.
+        if (board.length != 9) {
+            // TODO: What do we want to do in this case?
+        }
+
+        for (int i = 0; i < board.length; i++) {
+            if (board[i].length != 9) {
+                // TODO: What do we want to do in this case?
+            }
+        }
 
         // checks each array (i.e. each row) is 1-9
         for (int i = 0; i < board.length; i++) {

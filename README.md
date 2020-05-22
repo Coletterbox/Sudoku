@@ -13,7 +13,7 @@
 - [x] Look at adorable mouse gifs
 - [ ] Refactor sudoku checker
 - [x] Write method that converts a two-dimensional array of integers to a two-dimensional array of strings (maybe check if there's a more out-of-the-box method, but also, whatever)
-- [ ] Add Philip and Tolga to contributors
+- [x] Add Philip and Tolga to contributors
 - [ ] Add error handling for sudoku checker
 - [ ] Add TODOs from Trello to this list
-- [ ] Give Phil his Coffee
+- [ ] Give Phil his coffee
